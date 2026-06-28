@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mann se Moksha — Therapy, Hypnotherapy & Spiritual Healing</title>
+<meta name="description" content="Mann se Moksha — expert psychology, clinical hypnotherapy and spiritual healing. Balance within, freedom beyond.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E8; --card:#FCF9F3; --blush:#F3E2DF; --logo-bg:#FDD3DB;
+    --ink:#20293F; --ink-soft:#3A4256; --muted:#5A6076; --muted2:#6E6A66;
+    --line:#E7DDCE; --accent:#B27C5B; --accent-soft:#D8B7A6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+  @keyframes msFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes msFade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:14px clamp(18px,5vw,64px);background:rgba(247,241,232,0.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .brand{display:flex;align-items:center;gap:11px;background:none;border:none;cursor:pointer;padding:0;}
+  .brand-mark{width:34px;height:34px;border-radius:50%;background:var(--logo-bg);display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none;}
+  .brand-mark img{width:150%;height:150%;object-fit:cover;object-position:54% 38%;}
+  .brand-name{font-family:'Newsreader',serif;font-size:22px;letter-spacing:0.01em;color:var(--ink);line-height:1;}
+  .nav-links{display:flex;align-items:center;gap:clamp(4px,2vw,30px);flex-wrap:wrap;justify-content:flex-end;}
+  .nav-link{position:relative;background:none;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-size:15px;color:var(--ink-soft);padding:8px 6px;letter-spacing:0.01em;}
+  .nav-link.active::after{content:"";position:absolute;left:6px;right:6px;bottom:2px;height:2px;border-radius:2px;background:var(--accent);}
+  .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;border-radius:999px;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;border:none;}
+  .btn-dark{background:var(--ink);color:var(--paper);}
+  .btn-accent{background:var(--accent);color:#fff;}
+  .btn-ghost{background:none;border:1px solid #C9BCA8;color:var(--ink);}
+  .nav .btn-dark{font-size:14px;padding:10px 18px;margin-left:6px;}
+
+  /* PAGES */
+  .page{display:none;animation:msFade .5s ease both;}
+  .page.active{display:block;}
+  section{}
+  .wrap{max-width:1240px;margin:0 auto;}
+  .eyebrow{font-size:12.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,5vw,72px);align-items:center;
+    max-width:1240px;margin:0 auto;padding:clamp(40px,7vw,96px) clamp(20px,6vw,64px) clamp(30px,5vw,64px);}
+  .hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,5.4vw,68px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 22px;}
+  .hero p{font-size:clamp(16px,1.5vw,18.5px);line-height:1.7;color:var(--muted);max-width:520px;margin:0 0 32px;}
+  .eyebrow-row{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;}
+  .eyebrow-row span.line{width:24px;height:1px;background:var(--accent);}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+  .hero .btn-dark{font-size:15.5px;padding:15px 28px;}
+  .hero .btn-ghost{font-size:15.5px;padding:15px 26px;}
+  .hero-art{position:relative;display:flex;justify-content:center;}
+  .hero-art .halo{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:var(--blush);}
+  .hero-art img{position:relative;width:min(440px,86%);aspect-ratio:1;object-fit:cover;border-radius:50%;background:var(--logo-bg);box-shadow:0 30px 70px -30px rgba(32,41,63,0.45);animation:msFloat 7s ease-in-out infinite;}
+
+  /* CREDS */
+  .creds{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);}
+  .creds-inner{max-width:1240px;margin:0 auto;padding:26px clamp(20px,6vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(16px,4vw,54px);}
+  .creds-inner .lbl{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#9C8F7C;}
+  .cred{display:inline-flex;align-items:center;gap:10px;font-size:16px;color:var(--ink);font-weight:500;}
+  .cred .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+  /* SERVICES GRID */
+  .section-pad{padding:clamp(56px,8vw,104px) clamp(20px,6vw,64px);}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:44px;}
+  .sec-head h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.12;margin:14px 0 0;max-width:600px;}
+  .link-accent{background:none;border:none;color:var(--accent);font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap;padding:8px 0;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;}
+  .card{background:var(--card);border:1px solid #EBE1D1;border-radius:18px;padding:30px 28px;display:flex;flex-direction:column;min-height:230px;transition:box-shadow .25s,transform .25s;}
+  .card:hover{box-shadow:0 24px 48px -28px rgba(32,41,63,0.4);transform:translateY(-4px);}
+  .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+  .card-num{font-family:'Newsreader',serif;font-size:27px;color:var(--accent-soft);}
+  .card-tag{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#9C8F7C;border:1px solid #E2D6C4;border-radius:999px;padding:4px 11px;}
+  .card h3{font-family:'Newsreader',serif;font-weight:500;font-size:21px;line-height:1.25;margin:0 0 12px;}
+  .card p{font-size:14.5px;line-height:1.62;color:var(--muted2);margin:0;}
+  .card .enquire{margin-top:auto;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;padding-top:18px;}
+
+  /* APPROACH (dark) */
+  .dark{background:var(--ink);color:#EDE6DA;}
+  .dark-inner{max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,6vw,64px);}
+  .dark .eyebrow{color:var(--accent-soft);}
+  .dark h2.lead{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(26px,3.2vw,40px);line-height:1.3;max-width:840px;margin:16px 0 56px;color:var(--paper);}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:38px;}
+  .step{border-top:1px solid rgba(255,255,255,0.16);padding-top:22px;}
+  .step .n{font-family:'Newsreader',serif;font-size:30px;color:var(--accent-soft);margin-bottom:14px;}
+  .step h3{font-size:18px;font-weight:600;margin:0 0 10px;color:var(--paper);}
+  .step p{font-size:14.5px;line-height:1.65;color:#B7BDCB;margin:0;}
+
+  /* QUOTE */
+  .quote{max-width:980px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,6vw,64px);text-align:center;}
+  .quote .mark{font-family:'Newsreader',serif;font-size:60px;line-height:0.4;color:var(--accent-soft);}
+  .quote p{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(24px,3.2vw,38px);line-height:1.4;margin:0 0 36px;}
+  .quote .btn-accent{font-size:15.5px;padding:15px 30px;}
+
+  /* PAGE HEADERS */
+  .page-head{max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,92px) clamp(20px,6vw,64px) clamp(24px,4vw,40px);}
+  .page-head h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.1;margin:16px 0 20px;max-width:780px;}
+  .page-head p{font-size:clamp(16px,1.5vw,18px);line-height:1.7;color:var(--muted);max-width:640px;margin:0;}
+  .cta-band{text-align:center;}
+  .cta-band-inner{max-width:760px;margin:0 auto;padding:clamp(54px,8vw,96px) clamp(20px,6vw,64px);}
+  .cta-band h2{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(26px,3.4vw,40px);line-height:1.25;margin:0 0 18px;}
+  .cta-band p{font-size:16px;line-height:1.7;color:#B7BDCB;margin:0 0 30px;}
+
+  /* ABOUT */
+  .about-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(34px,5vw,70px);align-items:center;
+    max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,6vw,64px);}
+  .about-hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(32px,4.4vw,54px);line-height:1.12;margin:16px 0 24px;}
+  .about-hero p{font-size:16.5px;line-height:1.72;color:var(--muted);margin:0 0 18px;}
+  .about-hero em{font-style:italic;color:var(--ink);}
+  .about-art{position:relative;display:flex;justify-content:center;}
+  .about-art .halo{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:var(--blush);}
+  .about-art img{position:relative;width:min(400px,86%);aspect-ratio:1;object-fit:cover;border-radius:50%;background:var(--logo-bg);box-shadow:0 30px 70px -34px rgba(32,41,63,0.45);}
+  .values{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .values-inner{max-width:1240px;margin:0 auto;padding:clamp(50px,7vw,90px) clamp(20px,6vw,64px);}
+  .values-inner h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.2vw,38px);margin:0 0 44px;text-align:center;}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px;}
+  .vicon{width:46px;height:46px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .vgrid h3{font-family:'Newsreader',serif;font-weight:500;font-size:20px;margin:0 0 10px;}
+  .vgrid p{font-size:15px;line-height:1.65;color:var(--muted2);margin:0;}
+
+  /* FOOTER */
+  footer{background:#1A2235;color:#C9CEDA;}
+  .foot-grid{max-width:1240px;margin:0 auto;padding:clamp(50px,7vw,84px) clamp(20px,6vw,64px) 34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+  .foot-brand{display:flex;align-items:center;gap:11px;margin-bottom:18px;}
+  .foot-brand .m{width:38px;height:38px;border-radius:50%;background:var(--logo-bg);overflow:hidden;display:flex;align-items:center;justify-content:center;flex:none;}
+  .foot-brand .m img{width:150%;height:150%;object-fit:cover;object-position:54% 38%;}
+  .foot-brand .nm{font-family:'Newsreader',serif;font-size:21px;color:var(--paper);}
+  .foot-col .h{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#7C8395;margin-bottom:16px;}
+  .foot-col .links{display:flex;flex-direction:column;gap:11px;align-items:flex-start;}
+  .foot-col .links a,.foot-col .links button{background:none;border:none;color:#C9CEDA;font-family:'Hanken Grotesk',sans-serif;font-size:14.5px;cursor:pointer;padding:0;text-decoration:none;text-align:left;}
+  .foot-col .links a.strong{color:var(--paper);font-weight:600;}
+  .foot-note{border-top:1px solid rgba(255,255,255,0.08);}
+  .foot-note-inner{max-width:1240px;margin:0 auto;padding:20px clamp(20px,6vw,64px);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;}
+  .foot-note-inner .c{font-size:12.5px;color:#6E7587;}
+  .foot-note-inner .d{font-size:12px;color:#5E6577;max-width:560px;line-height:1.5;}
+
+  /* FLOAT WHATSAPP */
+  .wa-float{position:fixed;right:clamp(16px,3vw,30px);bottom:clamp(16px,3vw,30px);z-index:60;display:flex;align-items:center;gap:10px;
+    background:var(--ink);color:var(--paper);text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 20px;border-radius:999px;box-shadow:0 14px 34px -12px rgba(32,41,63,0.6);}
+  .wa-float .pulse{width:9px;height:9px;border-radius:50%;background:#7FCF8E;box-shadow:0 0 0 4px rgba(127,207,142,0.25);}
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <button class="brand" data-go="home">
+      <span class="brand-mark"><img src="assets/logo.png" alt="Mann se Moksha"></span>
+      <span class="brand-name">mann se moksha</span>
+    </button>
+    <div class="nav-links">
+      <button class="nav-link active" data-go="home" data-nav="home">Home</button>
+      <button class="nav-link" data-go="services" data-nav="services">Services</button>
+      <button class="nav-link" data-go="about" data-nav="about">About</button>
+      <a class="btn btn-dark" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20book%20a%20session." target="_blank" rel="noopener">Book a Session</a>
+    </div>
+  </nav>
+
+  <main>
+  <!-- ============ HOME ============ -->
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div>
+        <div class="eyebrow-row"><span class="line"></span><span class="eyebrow">Balance Within, Freedom Beyond</span></div>
+        <h1>A calm space to heal the mind and free the spirit.</h1>
+        <p>Mann se Moksha brings together expert psychology, clinical hypnotherapy and spiritual healing — guiding you gently from inner turmoil toward lasting peace, clarity and wholeness.</p>
+        <div class="cta-row">
+          <a class="btn btn-dark" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20book%20a%20session." target="_blank" rel="noopener">Book on WhatsApp <span>→</span></a>
+          <button class="btn btn-ghost" data-go="services">Explore Services</button>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="halo"></div>
+        <img src="assets/logo.png" alt="Mann se Moksha">
+      </div>
+    </section>
+
+    <section class="creds">
+      <div class="creds-inner">
+        <span class="lbl">Your care is led by</span>
+        <span class="cred"><span class="dot"></span>Expert Psychologists</span>
+        <span class="cred"><span class="dot"></span>Clinical Hypnotherapists</span>
+        <span class="cred"><span class="dot"></span>Spiritual Healers</span>
+      </div>
+    </section>
+
+    <section class="wrap section-pad">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">What we offer</div>
+          <h2>Therapies for the mind, the heart and the spirit.</h2>
+        </div>
+        <button class="link-accent" data-go="services">View all 10 services →</button>
+      </div>
+      <div class="cards" id="featured-cards"></div>
+    </section>
+
+    <section class="dark">
+      <div class="dark-inner">
+        <div class="eyebrow">Our approach</div>
+        <h2 class="lead">Healing is not forced. We hold a safe, unhurried space — and walk beside you, step by gentle step.</h2>
+        <div class="steps">
+          <div class="step"><div class="n">01</div><h3>Listen &amp; understand</h3><p>A confidential first conversation to truly understand where you are and what you long for.</p></div>
+          <div class="step"><div class="n">02</div><h3>A path made for you</h3><p>We blend psychology, hypnotherapy and energy work into a plan that fits your needs and pace.</p></div>
+          <div class="step"><div class="n">03</div><h3>Heal &amp; integrate</h3><p>Gentle sessions that release what weighs on you and help new calm take root in daily life.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="mark">&ldquo;</div>
+      <p>When the mind is at peace, freedom is no longer something you reach for — it is simply who you are.</p>
+      <a class="btn btn-accent" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20begin%20my%20healing%20journey." target="_blank" rel="noopener">Begin your journey →</a>
+    </section>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <div class="page" id="page-services">
+    <section class="page-head">
+      <div class="eyebrow">Our services</div>
+      <h1>Ten gentle paths to a calmer, freer you.</h1>
+      <p>Every therapy below is delivered by our experienced team of psychologists, clinical hypnotherapists and spiritual healers — chosen and shaped around what you need most.</p>
+    </section>
+    <section class="wrap" style="padding:0 clamp(20px,6vw,64px) clamp(60px,9vw,110px);">
+      <div class="cards" id="all-cards"></div>
+    </section>
+    <section class="dark cta-band">
+      <div class="cta-band-inner">
+        <h2>Not sure which therapy is right for you?</h2>
+        <p>Reach out for a warm, no-pressure conversation. We'll listen, and help you find the gentlest place to begin.</p>
+        <a class="btn btn-accent" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20help%20choosing%20the%20right%20therapy." target="_blank" rel="noopener">Talk to us on WhatsApp →</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <div class="page" id="page-about">
+    <section class="about-hero">
+      <div>
+        <div class="eyebrow">About us</div>
+        <h1>A caring team, holding space for your inner freedom.</h1>
+        <p>Mann se Moksha — meaning <em>liberation from the mind</em> — was born from a simple belief: that healing the psychological and the spiritual together creates change that truly lasts.</p>
+        <p>Our team brings together experienced psychologists, certified clinical hypnotherapists and dedicated spiritual healers. Together we offer care that is both grounded and soulful — always confidential, always without judgement.</p>
+      </div>
+      <div class="about-art">
+        <div class="halo"></div>
+        <img src="assets/logo.png" alt="Mann se Moksha">
+      </div>
+    </section>
+    <section class="values">
+      <div class="values-inner">
+        <h2>What you can expect from us</h2>
+        <div class="vgrid">
+          <div><div class="vicon"><span style="width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);"></span></div><h3>Complete confidentiality</h3><p>Everything you share stays in the room. A safe container is the foundation of every session.</p></div>
+          <div><div class="vicon"><span style="width:14px;height:14px;border-radius:50%;background:var(--accent);"></span></div><h3>Experienced &amp; certified</h3><p>Qualified clinical and spiritual practitioners with years of dedicated, compassionate practice.</p></div>
+          <div><div class="vicon"><span style="width:16px;height:2px;background:var(--accent);"></span></div><h3>No judgement, ever</h3><p>You're met with warmth and acceptance, exactly as you are, at whatever pace feels right.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-band">
+      <div class="cta-band-inner" style="color:var(--ink);">
+        <h2 style="color:var(--ink);">Ready when you are.</h2>
+        <a class="btn btn-dark" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20book%20a%20session." target="_blank" rel="noopener" style="font-size:15.5px;padding:15px 30px;">Book a session →</a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div style="max-width:320px;">
+        <div class="foot-brand">
+          <span class="m"><img src="assets/logo.png" alt=""></span>
+          <span class="nm">mann se moksha</span>
+        </div>
+        <p style="font-size:14px;line-height:1.65;color:#9AA1B2;margin:0 0 8px;">Balance within, freedom beyond.</p>
+        <p style="font-size:13px;line-height:1.6;color:#7C8395;margin:0;">Expert psychology, clinical hypnotherapy &amp; spiritual healing — under one caring roof.</p>
+      </div>
+      <div class="foot-col">
+        <div class="h">Explore</div>
+        <div class="links">
+          <button data-go="home">Home</button>
+          <button data-go="services">Services</button>
+          <button data-go="about">About</button>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="h">Get in touch</div>
+        <div class="links">
+          <a class="strong" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp us →</a>
+          <a href="tel:+919464966069">+91 94649 66069</a>
+          <a href="mailto:mannsemokhsa@gmail.com">mannsemokhsa@gmail.com</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="h">Follow along</div>
+        <div class="links">
+          <a href="https://www.instagram.com/mannsemoksha/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@Mannsemoksha" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-note">
+      <div class="foot-note-inner">
+        <span class="c">© <span id="year"></span> Mann se Moksha. All rights reserved.</span>
+        <span class="d">Our therapies support emotional wellbeing and are not a substitute for emergency medical or psychiatric care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/919464966069?text=Hi%20Mann%20se%20Moksha%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="pulse"></span>Chat with us
+  </a>
+
+<script>
+  var WA = "https://wa.me/919464966069";
+  function waLink(message){ return WA + "?text=" + encodeURIComponent(message); }
+  var services = [
+    {num:"01",tag:"Psychological",name:"Stress Management & Anxiety Reduction",desc:"Gentle, evidence-informed hypnotherapy to quiet a racing mind, ease physical tension, and restore a steady sense of calm and control."},
+    {num:"02",tag:"Inner Work",name:"Inner Child Healing",desc:"Reconnect with and tenderly nurture your younger self, releasing old emotional wounds that quietly shape how you feel and react today."},
+    {num:"03",tag:"Regression",name:"Age & Past Life Regression",desc:"Safely revisit formative memories — and lifetimes — to understand recurring patterns and find resolution at their very root."},
+    {num:"04",tag:"Energy",name:"Womb Healing",desc:"Release inherited and emotional imprints carried from your earliest beginnings, making space for renewal, softness and rest."},
+    {num:"05",tag:"Inner Work",name:"Shadow Work",desc:"Meet the hidden, disowned parts of yourself with compassion and curiosity, integrating them into a fuller, more grounded whole."},
+    {num:"06",tag:"Energy",name:"Chakra Healing & Balancing",desc:"Restore the natural flow of energy through the body’s centres for greater clarity, vitality, emotional balance and ease."},
+    {num:"07",tag:"Spiritual",name:"Akashic Records",desc:"A guided reading of your soul’s record to bring insight, direction, and a deeper understanding of your purpose and path."},
+    {num:"08",tag:"Psychological",name:"Addiction Therapy",desc:"Compassionate, structured support to understand triggers, rebuild self-trust, and move toward lasting freedom from dependency."},
+    {num:"09",tag:"Relational",name:"Relationship Counseling",desc:"Safe, balanced guidance to heal communication, rebuild trust, and reconnect with the people who matter most to you."},
+    {num:"10",tag:"Energy",name:"Theta Healing",desc:"A meditative technique working at the theta brainwave level to shift limiting beliefs and invite deep, lasting change."}
+  ];
+
+  function cardHTML(s, withEnquire){
+    return '<div class="card">'
+      + '<div class="card-top"><span class="card-num">'+s.num+'</span><span class="card-tag">'+s.tag+'</span></div>'
+      + '<h3>'+s.name+'</h3><p>'+s.desc+'</p>'
+      + (withEnquire ? '<a class="enquire" href="'+waLink('Hi Mann se Moksha, I\'d like to enquire about '+s.name+'.')+'" target="_blank" rel="noopener">Enquire about this →</a>' : '')
+      + '</div>';
+  }
+  document.getElementById('featured-cards').innerHTML = services.slice(0,6).map(function(s){return cardHTML(s,false);}).join('');
+  document.getElementById('all-cards').innerHTML = services.map(function(s){return cardHTML(s,true);}).join('');
+
+  function go(page){
+    var pages = document.querySelectorAll('.page');
+    for(var i=0;i<pages.length;i++){ pages[i].classList.toggle('active', pages[i].id === 'page-'+page); }
+    var navs = document.querySelectorAll('[data-nav]');
+    for(var j=0;j<navs.length;j++){ navs[j].classList.toggle('active', navs[j].getAttribute('data-nav') === page); }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-go]') : null;
+    if(t){ e.preventDefault(); go(t.getAttribute('data-go')); }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
